@@ -1,0 +1,84 @@
+Complete CRUD application using ES2015 Modules. everything done till now was done in browser, no code was compiled 
+Modules havent been implemented in browser yet so using babel webpack starter 
+Babel is used to transpile ES2015 + code down to regular ES5 code and we need to do that 
+in order to use modules 
+Webpack gives us a nice workflow so that we can use npm , can create static assets , 
+also using webpack dev server that will allow us to run an auto load server in browser while we create 
+our application
+
+
+Download node js and then u will have npm on ur machine
+npm install cmd to install dependencies .. is going to look at package.json file. its kind of manifest file
+and it looks at all the devdependencies and installs babel and pre-sets that we need 
+
+npm install cmd:
+It would create a node modules folder and it has all kind of dependencies in it. (nodemodules folder is rarely touched)
+
+code . cmd to open vs code from cmd prompt
+
+VS code has integrated terminal 
+
+
+IN package.json
+Scripts- 2 cmds we can use to run different things - npm run build will run webpack and will compile 
+our code down to ES5. 
+
+Main app file is in src folder .This is the file that gets compiled down to ES5. 
+
+npm run build - cmd - will have webpack create a build folder with app.bundle.js inside it 
+Even if we have used const greeting, it got compiled to var greeting coz var is of ES2015
+
+ANything we put in app.js file or any modules we connect to it is gonna get compiled to es5 so that we can run in the 
+browser
+
+We are including app.bundle file in index.html. app.bundle.js is the compiled ES5 code 
+SO we are not putting app.js in script tag in html, we are putting bundle file that got compiled 
+
+To run server - npm start 
+
+
+Lecture 2 
+
+There are different types of modules in JS 
+Common JS Module which node JS uses by default, its what we can use with webpack , without even having to use babel 
+but we have babel set up so that we can use ES2015 modules.
+
+Both of them are used to bring in modules that can be used to bring in other files , other JS files 
+u can also use it to bring modules that u install with npm 
+
+
+Common JS modules - not a part of ES2015 
+A module can be anything, it can be a function, an object , an object full of funs, or even a string 
+
+//whatevr i put here shud be availble to other files 
+module.exports = {
+    name :' Brad'
+    email:'test@test.com'
+}
+
+If we update HTML, it doesnt auto load, web pack dev server will auto load if we change to JS but not UI 
+
+Its a full stack application but we need backend. Json server is a part of json placeholder service 
+It allows us to mimic a complete rest api basically just using a json file , we can run the server, stop the server
+view our data 
+
+npm install json-server --save 
+--save to make sure its saved to our package.json file
+
+with npm 5 it automatically saved to package.json
+
+
+We can call json-server --watch db.json
+and that will act like our api , it will give us url to open , will open on port 3000
+
+
+Adding this in package.json "json:server":
+so that we can run npm run json-server
+
+
+We can start json server using cmd npm run json-server
+http://localhost:3000/posts
+we get this, coz we have posts in pur db.json
+
+
+HTML 5 allows u to have custom attributes and prefix them with data-
